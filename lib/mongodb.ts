@@ -34,8 +34,9 @@ const cached: MongooseCache = global.mongooseCache ?? {
 global.mongooseCache = cached;
 
 /**
- * Returns a cached Mongoose connection. On the first call it
- * creates the connection; subsequent calls return the same instance.
+ * Get a cached Mongoose connection, creating it on first call and reusing it thereafter.
+ *
+ * @returns The established Mongoose connection instance.
  */
 async function dbConnect(): Promise<Mongoose> {
   if (cached.conn) {
