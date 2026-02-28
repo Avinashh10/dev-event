@@ -6,9 +6,10 @@ const BookEvent = () => {
     const [email, setEmail] = useState('');
     const [submitted, setSubmitted] = useState(false);
 
-    const handleSubmit = async (e: React.FormEvent) => {
+    const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
         e.preventDefault();
-
+        if (!email.trim()) return;
+        setSubmitted(true);
     }
     return (
         <div id="book-event">
