@@ -18,10 +18,11 @@ export async function POST(req: NextRequest) {
             return NextResponse.json({ message: 'Invalid JSON data format'}, { status: 400 })
         }
 
-        const file = formData.get('image') as File;
-
-        if(!file) return NextResponse.json({ message: 'Image file is required'}, { status: 400 })
-
+        const imageValue = formData.get('image');
+        if (!(imageValue instanceof File) || imageValue.size === 0) {
+            return NextResponse.json({ message: 'Valid image file is required' }, { status: 400 });
+        }
+        const file = imageValue;
         let tags = JSON.parse(formData.get('tags') as string);
         let agenda = JSON.parse(formData.get('agenda') as string);
 
