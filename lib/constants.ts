@@ -58,7 +58,7 @@ export const events: Event[] = [
   },
   {
     title: "Black Hat USA 2026",
-    image: "/images/event-full.png",
+    image: "/images/events-full.png",
     slug: "black-hat-usa-2026",
     location: "Las Vegas, NV",
     date: "August 4-6, 2026",
